@@ -1,1 +1,25 @@
-<p>highlights works!</p>
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-10">
+      <h3>Entries</h3>
+    </div>
+    <div class="col-2">
+      <button (click)="addHighlight()"><i class="bi bi-plus-lg"></i>new entry</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4 mb-4" *ngFor="let highlight of (highlightList$ | async)">
+      <div class="card highlight-card" style="max-height: 200px; min-height: 200px; overflow: hidden" (click)="openDialog(highlight)">
+<!--        <div class="card-title text-center">-->
+          <div class="card-header">{{highlight.date | date}}</div>
+
+<!--        </div>-->
+        <div class="card-body">
+          <div [innerHTML]="highlight.description"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

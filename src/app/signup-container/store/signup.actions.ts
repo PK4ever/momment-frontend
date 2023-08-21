@@ -11,3 +11,4 @@ export const  SIGNUPSUCCESS = createAction('Signup Success',
 export const  SIGNUPFAIL = createAction('Signup Fail',
   props<{errMsg: string}>());
 
+export const  CLEARSIGNUPSTATE = createAction('Clear Signup State');

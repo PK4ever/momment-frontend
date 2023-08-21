@@ -1,0 +1,91 @@
+::ng-deep .profile-modal {
+  .modal-header {
+    border-bottom: none;
+  }
+}
+  ::ng-deep .profile-modal {
+    //margin-left: 63%;
+    //margin-top: 5%;
+    //overflow: hidden;
+    position: absolute;
+    top: 0px;
+    width: 436px;
+    z-index: 991;
+    height: 0px;
+    right: 0px;
+    min-height: 210px;
+    max-height: calc(-61px + 100dvh);
+    max-width: calc(-8px + 100vw);
+    margin-top: 57px;
+    margin-right: 25px;
+  }
+
+  @media screen and (max-width: 480px) {
+    ::ng-deep .profile-modal {
+      margin-left: auto;
+      margin-top: 45px;
+    }
+
+    ::ng-deep .profile-modal {
+      .modal-content {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+      }
+    }
+  }
+
+  //
+  ///* Media Query for Mobile Devices */
+  //@media (max-width: 480px) {
+  //  ::ng-deep .model-dialog {
+  //    background-color: red;
+  //  }
+  //}
+
+  ///* Media Query for low resolution  Tablets, Ipads */
+  //@media (min-width: 481px) and (max-width: 767px) {
+  //  ::ng-deep .model-dialog {
+  //    background-color: yellow;
+  //  }
+  //}
+
+  /* Media Query for Tablets Ipads portrait mode */
+  @media (min-width: 768px) and (max-width: 1024px){
+    ::ng-deep .profile-modal {
+      margin-right: 30px;
+      //background-color: blue;
+    }
+  }
+
+
+///* Media Query for Laptops and Desktops */
+//@media (min-width: 1025px) and (max-width: 1280px){
+//  ::ng-deep .model-dialog {
+//    //background-color: green;
+//  }
+//}
+//
+///* Media Query for Large screens */
+//@media (min-width: 1281px) {
+//  ::ng-deep .model-dialog {
+//    //background-color: white;
+//  }
+//}
+::ng-deep .card-block {
+  padding: 0;
+}
+.child-selectable {
+  border-bottom: solid whitesmoke;
+  margin: auto;
+  height: 65px;
+}
+
+.child-selectable:hover {
+  background-color: whitesmoke;
+}
+
+
+.action-icon:hover {
+  cursor: pointer;
+}

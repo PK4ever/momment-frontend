@@ -1,0 +1,25 @@
+<!--<h3>Check your email!</h3>-->
+<!--&lt;!&ndash;<p>We have sent a confirmation link to {{user.email}}. Please check your email  and click on the link to verify your account!</p>&ndash;&gt;-->
+<!--<a href="">Resend</a>-->
+<!--<h3>already verified ?</h3>-->
+<!--<p>Proceed to login with your account details!</p>-->
+
+<!--<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>-->
+
+<!--<ng-template #template>-->
+    <div class="modal-header" >
+      <h4 class="modal-title pull-left">Check your inbox!</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      We have sent a confirmation link to {{signupUser?.email}}. Please check your email  and click on the link to verify your account!
+      <h3>Already  Confirmed?</h3>
+      <p>Proceed to <a (click)="modalRef?.hide()">login</a></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modalRef?.hide()">Close</button>
+      <button type="button" class="btn btn-primary">Resend Email</button>
+    </div>
+<!--</ng-template>-->

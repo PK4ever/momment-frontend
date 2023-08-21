@@ -1,0 +1,34 @@
+
+<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
+<div class="modal-header" >
+  <h4 class="modal-title pull-left">{{modalAction}} child</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputFirstName" placeholder="Poopi" formControlName="name">
+        <label for="floatingInputFirstName">Name</label>
+      </div>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="col">
+    <div class="form-floating mb-3">
+        <input id="floatingDob" formControlName="dob"
+          placeholder="Date of birth"
+          class="form-control"
+          #dp="bsDatepicker"
+          bsDatepicker>
+      <label for="floatingDob">date of birth</label>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" (click)="modalRef?.hide()">Close</button>
+  <button class="btn btn-outline-primary" type="submit">save</button>
+</div>
+</form>
