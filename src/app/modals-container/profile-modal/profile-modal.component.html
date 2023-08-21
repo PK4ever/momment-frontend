@@ -1,0 +1,38 @@
+<div class="modal-header" xmlns="http://www.w3.org/1999/html">
+  <div class="modal-title text-center" style="width: 100vw">
+    <div class="row">
+      <i class="bi bi-person-circle" style="font-size: 50px;"></i>
+      <div>{{(selectedChild$ |  async)?.name}}</div>
+    </div>
+    <div class="d-flex justify-content-evenly" *ngIf="selectedChild$ | async as selectedChild">
+        <span><i class="bi bi-pen action-icon" (click)="editChildClicked(selectedChild)"></i></span>
+        <span><i class="bi bi-trash3 action-icon" (click)="deleteChildClicked(selectedChild)"></i></span>
+    </div>
+  </div>
+
+    <button style="margin-top: -90px" type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <accordion [isAnimated]="true">
+    <accordion-group [isOpen]="true" heading="See More Children">
+      <div (click)="selectChild(child)" *ngFor="let child of (childrenList$  |  async)" class="child-selectable row" [hidden]="(selectedChild$  | async)?.id === child.id">
+          <div class="col">
+            <i class="bi bi-person-circle" style="font-size: 30px;"></i>
+            {{child.name}}
+          </div>
+      </div>
+
+      <div class="d-flex justify-content-center p-3">
+          <button (click)="addChildClicked()"><i class="bi bi-plus">Add Child</i></button>
+      </div>
+    </accordion-group>
+  </accordion>
+
+
+</div>
+<div class="modal-footer">
+<!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modalRef?.hide()">Close</button>-->
+  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modalRef?.hide(); logout()">Logout</button>
+</div>

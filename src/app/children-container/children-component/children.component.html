@@ -1,1 +1,11 @@
-<p>children works!</p>
+<div class="row text-center  child-card">
+  <div class="col">
+    <div class="card" *ngIf="(selectedChild$ | async) as selectedChild">
+<!--      <img src="..." class="card-img-top" alt="...">-->
+      <div class="card-body">
+        <h5 class="card-title">{{selectedChild?.name}}</h5>
+        <p class="card-text">Birthday: {{selectedChild?.dob | date: "dd MMM"}}</p>
+      </div>
+    </div>
+  </div>
+</div>

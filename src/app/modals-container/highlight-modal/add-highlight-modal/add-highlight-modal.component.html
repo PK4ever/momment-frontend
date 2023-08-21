@@ -1,0 +1,61 @@
+<div *ngIf="modalAction ==  'View'; then viewTemplate else formTemplate"></div>
+<ng-template #viewTemplate>
+  <div class="modal-header" style="display: revert">
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" (click)="modalRef?.hide()">CANCEL</button>
+      </div>
+      <div class="p-2">
+        <button class="btn btn-outline-primary" (click)="changeToEdit()">EDIT</button>
+      </div>
+      <div class="p-2">
+        <button class="btn btn-outline-primary" (click)="modalRef?.hide(); delete()">DELETE</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6">
+        <h3>{{modalData?.date  | date}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div [innerHTML]="modalData?.description"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #formTemplate>
+<form [formGroup]="addHighlightForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{modalAction}} Highlight</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6 mb-5">
+        <div class="form-floating">
+          <input id="floatingDate" formControlName="date"
+                 placeholder="Date"
+                 class="form-control"
+                 #dp="bsDatepicker"
+                 bsDatepicker>
+          <label for="floatingDate">Enter Date</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+      <quill-editor formControlName="description" class="content-editor" [placeholder]="''" style="height: 250px; font-size: 30px"> </quill-editor>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" (click)="modalRef?.hide()">Cancel</button>
+    <button class="btn btn-outline-primary" type="submit" (click)="modalRef?.hide()">SAVE</button>
+  </div>
+</form>
+</ng-template>

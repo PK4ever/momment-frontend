@@ -1,0 +1,74 @@
+<div *ngIf="loginState$  | async as loginState">
+  <div *ngIf="loginState.status && loginState.user then userPage else authPage">
+  </div>
+
+</div>
+<ng-template #authPage>
+  <div class="container auth-container" style="height: inherit">
+    <div class="row" id="logo">
+      <div class="col-12 text-center">
+
+        <span class="dot"></span>
+<!--        <h1 style="line-height: 0;margin-right: 10px;">o</h1>-->
+        <h1>MOMMENT</h1>
+        <hr style="margin: auto; margin-top: -10px; margin-bottom: 15px; border: none; height: 3px; background-color: #26226e;  width: 70px; opacity: inherit">
+      </div>
+    </div>
+    <div class="row form-container">
+      <div class="col-6 form-col" [ngClass]="{'animate_login': !login_active}">
+        <app-login></app-login>
+      </div>
+
+      <div class="col-6 form-col" [ngClass]="{'animate_signup': login_active}">
+        <app-signup></app-signup>
+      </div>
+      <div class="form-overlay text-center" [ngClass]="login_active ? 'signup' : 'login'">
+        <div class="container overlay-contents">
+          <div *ngIf="!login_active else welcome">
+            <div [ngClass]="{'animate_signup': !login_active}">
+              <h2 class="overlay-header">Hi!</h2>
+              <p>Don't have an account? create one in order to access momment</p>
+            </div>
+          </div>
+          <ng-template #welcome>
+            <div [ngClass]="{'animate_login': login_active}">
+              <h2 class="overlay-header">Welcome Back!</h2>
+              <p>Please sign in to access your account</p>
+            </div>
+          </ng-template>
+          <button class="ghost" [ngClass]="!login_active ? 'animate_signup' : 'animate_login'  " (click)="toggleLogin()">{{login_active? 'SIGN IN' : 'SIGN UP'}}</button>
+        </div>
+        </div>
+    </div>
+  </div>
+  <app-email-confirmation-modal [hidden]="true"></app-email-confirmation-modal>
+</ng-template>
+
+<ng-template #userPage>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-12 text-center">
+          <span class="dot" style="width: 10px; height: 10px; margin-right: 15px;margin-bottom: -18px;"></span>
+          <div class="navbar-brand"><h1>MM</h1></div>
+            <hr style="margin-top: -15px; border: none; height: 2px; background-color: #26226e;  width: 80px; opacity: inherit">
+        </div>
+      </div>
+<!--      <a class="navbar-brand" href="#">MOMMENT</a>-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <div class="d-flex">
+          <div class="me-2">
+            <i (click)="showProfiles()" class="bi bi-person-circle" style="font-size: 30px;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <app-children></app-children>
+  <app-highlights></app-highlights>
+</ng-template>

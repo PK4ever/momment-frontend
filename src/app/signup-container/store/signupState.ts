@@ -1,6 +1,6 @@
 export interface SignupState {
   isSuccess: boolean;
-  user: User;
+  user: User | undefined;
 }
 
 export interface Credentials {
@@ -12,5 +12,5 @@ export interface Credentials {
 export interface User {
   name: string;
   email: string;
-  emailVerified: boolean;
+  isEnabled: boolean;
 }

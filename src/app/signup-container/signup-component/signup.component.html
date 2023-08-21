@@ -1,0 +1,37 @@
+<div class="text-center"><h3 class="header mb-4">Create Account</h3></div>
+<form class="row" [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div class="col-12 mb-3">
+      <label for="firstName" class="custom_input">
+<!--        <input class="form-control" type="text" id="f-name" placeholder="First name">-->
+        <input  placeholder="First name" class="form-control" id="firstName" type="text" formControlName="firstName">
+        <p class="custom_label">First name</p>
+      </label>
+    </div>
+
+<!--  <div class="col-12 mb-3">-->
+<!--    <label for="lastName" class="custom_input">-->
+<!--      <input  placeholder="Last name" class="form-control" id="lastName" type="text" formControlName="lastName">-->
+<!--      <p class="custom_label">Last name</p>-->
+<!--    </label>-->
+<!--  </div>-->
+
+
+  <div class="col-12 mb-3">
+    <label for="email" class="custom_input">
+      <input placeholder="Email" class="form-control" id="email" type="email" formControlName="email">
+      <p class="custom_label">Email</p>
+    </label>
+  </div>
+
+  <div class="col-12 mb-3">
+    <label for="password" class="custom_input">
+      <input placeholder="password" class="form-control" id="password" type="email" formControlName="password">
+      <p class="custom_label">Password</p>
+    </label>
+  </div>
+
+    <div class="col-12 mb-3 text-center">
+      <button type="submit">SIGN UP</button>
+    </div>
+</form>
+

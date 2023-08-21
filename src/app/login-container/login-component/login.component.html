@@ -1,0 +1,22 @@
+
+<div class="text-center"><h3 class="header mb-3">Login</h3></div>
+<form class="row" [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="col-12 mb-3">
+    <label for="login_email" class="custom_input">
+      <input placeholder="Email" class="form-control" id="login_email" type="email" formControlName="login_email">
+      <p class="custom_label">Email</p>
+    </label>
+  </div>
+  <div class="col-12 mb-3">
+    <label for="login_password" class="custom_input">
+      <input placeholder="password" class="form-control" id="login_password" type="password" formControlName="login_password">
+      <p class="custom_label">Password</p>
+    </label>
+  </div>
+  <div class="col-12 text-center">
+    <p>Forgot password?</p>
+  </div>
+  <div class="col-12 text-center">
+    <button type="submit">SIGN IN</button>
+  </div>
+</form>
